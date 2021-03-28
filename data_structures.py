@@ -99,3 +99,23 @@ def list_comprehension():
     passed = [name for name, score in scores.items() if score >= 65]
     print(passed)
     # Output: ['Rick Sanchez', 'Summer Smith', 'Beth Smith']
+
+
+print('"Dictionary" methods:')
+print('====================')
+flowers_dict = {}
+print('1: ', flowers_dict)
+flowers_dict.update({'a': '111'})
+print('2: ', flowers_dict)
+flowers_dict.update({'b': '222'})
+print('3: ', flowers_dict)
+new_dict = flowers_dict.fromkeys(['c', 'd'], False)
+print('5 keys: ', flowers_dict, new_dict)
+ccc = new_dict.pop('c')
+print('6 ccc: ', flowers_dict, ccc)
+eee = new_dict.pop('e', 'default value')
+print('7 eee: ', flowers_dict, eee)
+fff = flowers_dict.popitem()
+print('8 fff: ', flowers_dict, fff)
+flowers_dict.clear()
+print('4: ', flowers_dict)

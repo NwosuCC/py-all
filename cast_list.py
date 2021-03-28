@@ -49,12 +49,40 @@ def generate_password():
     # words = []
     # for i in range(3):
     #     words.append(random.choice(word_list))
+    # return ''.join(words)
 
     # short-hand
-    words = random.sample(word_list, 3)
+    return ''.join(
+        random.sample(word_list, 3)
+    )
 
-    print(words)
-    return ''.join(words)
+
+# print(generate_password())
 
 
-print(generate_password())
+# HINT: create a dictionary from flowers.txt
+def get_flowers_dict():
+    flowers_dict = {}
+    with open('files/flowers.txt', 'r') as f:
+        for line in f:
+            letter, name = line.strip().split(': ')
+            flowers_dict[letter] = name
+    return flowers_dict
+
+
+# HINT: create a function to ask for user's first and last name
+def match_flower_name():
+    try:
+        first_name, last_name = input('Enter your First [space] Last name only: ').split(' ')
+        first_letter = first_name[0].upper()
+        flowers_dict = get_flowers_dict()
+
+        # print the desired output
+        print('Unique flower name with the first letter: {}'.format(flowers_dict[first_letter]))
+    except ValueError as ve:
+        print('Error: ', ve)
+    except KeyError as ke:
+        print('No flower starts with provided first letter {}'.format(ke))
+
+
+match_flower_name()
